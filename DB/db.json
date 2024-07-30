@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "user2",
+      "age": 22,
+      "email": "user2@gmail.com",
+      "ph_number": "223456789"
+    },
+    {
+      "id": 3,
+      "name": "user3",
+      "age": "25",
+      "email": "user3@gmail.com",
+      "ph_number": "323456789"
+    },
+    {
+      "id": 4,
+      "name": "user4",
+      "age": "24",
+      "email": "user4@gmail.com",
+      "ph_number": "423456789"
+    }
+  ]
+}

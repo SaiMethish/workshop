@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userform</title>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/formdata.js"></script>
+</head>
+<body>
+    <div class="userform">
+        <div class="name">
+            <span>Name</span>
+            <input id="name-input" type="text" >
+        </div>
+        <div class="age">
+            <span>Age</span>
+            <input id="age-input" type="number" >
+        </div>
+        <div class="email">
+            <span>email</span>
+            <input id="mail-input" type="email" >
+        </div>
+        <div class="ph-number">
+            <span>ph-number</span>
+            <input id="number-input" type="number" >
+        </div>
+        <button id="submit-btn" onclick="getDetails()">submit</button>
+        <button id="redirect-btn" onclick="window.location.href='./mainpage.html'">HomePage</button>
+    </div>
+</body>
+</html>
