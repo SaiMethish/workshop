@@ -15,11 +15,11 @@ const addData = () => {
                 <td><p>${data[i].ph_number}</p></td>
                 <div class="icons">
                 <td><button id="delete" onclick="deleteUser('${data[i].id}')">delete</button></td>
-                <td><button id="edit" onclick="editUser">edit</button></td>
+                <td><button id="edit" onclick="editUser('${data[i].id}')">edit</button></td>
                 </div>
             </tr>
     `;
-    usertable.append(component);
+        usertable.append(component);
     }
 }
 
@@ -31,44 +31,73 @@ $(document).ready(() => {
             console.log(res);
             data = res;
             addData();
-            localStorage.setItem("data",JSON.stringify(data));
+            localStorage.setItem("data", JSON.stringify(data));
         },
         error: (err) => { console.log(err) }
     })
 })
 
-function  deleteUser(id){
-    console.log(id);
+function deleteUser(id) {
     $.ajax({
-        type:"DELETE",
-        url:`http://localhost:3000/users/${id}`,
+        type: "DELETE",
+        url: `http://localhost:3000/users/${id}`,
         headers: {
-            'Content-Type':'application/json'
+            'Content-Type': 'application/json'
         },
-        success:(res)=>{
+        success: (res) => {
             $(`tr[data-id="${id}"]`).remove();
             console.log("data deleted successfully")
         },
-        error:(err)=>{
+        error: (err) => {
             console.log(err)
         }
     })
 }
 
-function editUser(user){
+function editUser(id) {
+    console.log(id)
+    let user;
     $.ajax({
-        type:"PUT",
-        url:`http://localhost:3000/users/${id}`,
-        headers: {
-            'Content-Type':'application/json'
+        type: "GET",
+        url: `http://localhost:3000/users/${id}`,
+        success: (res) => {
+            console.log(res);
+            user = res;
+            editdetails();
         },
-        data:JSON.stringify(user),
-        success:(res)=>{
-            $(`tr[data-id="${id}"]`).remove();
-            console.log("data deleted successfully")
-        },
-        error:(err)=>{
-            console.log(err)
-        }
+        error: (err) => { console.log(err) }
     })
+    const editdetails = () => {
+        let attr = prompt("enter the attribute to be edited");
+        let val = prompt("enter the value to be edited");
+        if (attr == "name") {
+            user.name = val;
+        }
+        else if (attr == "age") {
+            user.age = val;
+        }
+        else if (attr == "email") {
+            user.email = val;
+        }
+        else {
+            user.ph_number = val;
+        }
+        $.ajax({
+            type: "PUT",
+            url: `http://localhost:3000/users/${id}`,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify(user),
+            success: (res) => {
+                $(`tr[data-id="${id}"]`).remove();
+                console.log("data deleted successfully")
+            },
+            error: (err) => {
+                console.log(err)
+            }
+        })
+    }
+
+    
 }
