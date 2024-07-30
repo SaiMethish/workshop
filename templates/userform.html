@@ -1,32 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>userform</title>
     <script src="../js/jquery.js"></script>
     <script src="../js/formdata.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .userform {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .userform input {
+            width: 50%;
+            padding: 2%;
+            margin-left: 3%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .userform button {
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+            width: 20%;
+            height: 30%;
+            padding: 2%;
+            margin: 1%;
+        }
+
+        .name,
+        .age,
+        .email,
+        .ph-number {
+            display: flex;
+            flex-direction: row;
+            padding: 1%;
+            justify-content: space-evenly;
+        }
+        .btns{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        .ph-number>input{
+            margin-right: 3%;
+        }
+    </style>
 </head>
+
 <body>
     <div class="userform">
         <div class="name">
             <span>Name</span>
-            <input id="name-input" type="text" >
+            <input id="name-input" type="text">
         </div>
         <div class="age">
             <span>Age</span>
-            <input id="age-input" type="number" >
+            <input id="age-input" type="number">
         </div>
         <div class="email">
             <span>email</span>
-            <input id="mail-input" type="email" >
+            <input id="mail-input" type="email">
         </div>
         <div class="ph-number">
             <span>ph-number</span>
-            <input id="number-input" type="number" >
+            <input id="number-input" type="number">
         </div>
-        <button id="submit-btn" onclick="getDetails()">submit</button>
-        <button id="redirect-btn" onclick="window.location.href='./mainpage.html'">HomePage</button>
+        <div class="btns">
+            <button id="submit-btn" onclick="getDetails()">submit</button>
+            <button id="redirect-btn" onclick="window.location.href='./mainpage.html'">HomePage</button>
+        </div>
     </div>
 </body>
+
 </html>

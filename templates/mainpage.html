@@ -7,32 +7,25 @@
     <title>Main Page</title>
     <script src="../js/jquery.js"></script>
     <script src="../js/dataAdder.js"></script>
-    
+    <link rel="stylesheet" href="../css/mainpage.css">
+
 </head>
 
 <body>
-    <table align="center">
+    <table class="usertable">
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Age</th>
-                <th>email</th>
-                <th>ph-number</th>
-                <th>actions</th>
+                <th class="age-head">Age</th>
+                <th>Email</th>
+                <th>Ph-number</th>
+                <th>Actions</th>
+                <th><button id="add" onclick="window.location.href='./userform.html'">Add</button></th>
             </tr>
         </thead>
-        <tbody >
-            <tr>
-                <td><p>user1</p></td>
-                <td><p>21</p></td>
-                <td><p>user1@gmail.com</p></td>
-                <td><p>123456789</p></td>
-                <td><button id="delete">delete</button></td>
-                <td><button id="edit">edit</button></td>
-            </tr>
+        <tbody>
         </tbody>
     </table>
-    <button id="add" onclick="window.location.href='./userform.html'">Add data</button>
 </body>
 
 </html>

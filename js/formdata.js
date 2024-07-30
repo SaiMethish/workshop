@@ -14,11 +14,7 @@ const getDetails=()=>{
     const age=document.getElementById("age-input").value;
     const email=document.getElementById("mail-input").value;
     const ph_number=document.getElementById("number-input").value;
-    const formdata=JSON.parse(localStorage.getItem("data"));
-    const id=formdata[formdata.length-1].id+1;
-    console.log(id)
     const user={
-        id:id,
         name:name,
         age:age,
         email:email,

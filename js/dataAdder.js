@@ -13,8 +13,10 @@ const addData = () => {
                 <td><p>${data[i].age}</p></td>
                 <td><p>${data[i].email}</p></td>
                 <td><p>${data[i].ph_number}</p></td>
-                <td><button id="delete" onclick={deleteUser(${data[i].id})}>delete</button></td>
-                <td><button id="edit">edit</button></td>
+                <div class="icons">
+                <td><button id="delete" onclick="deleteUser('${data[i].id}')">delete</button></td>
+                <td><button id="edit" onclick="editUser">edit</button></td>
+                </div>
             </tr>
     `;
     usertable.append(component);
@@ -35,6 +37,38 @@ $(document).ready(() => {
     })
 })
 
-const deleteUser=(id)=>{
-    console.log(id)
+function  deleteUser(id){
+    console.log(id);
+    $.ajax({
+        type:"DELETE",
+        url:`http://localhost:3000/users/${id}`,
+        headers: {
+            'Content-Type':'application/json'
+        },
+        success:(res)=>{
+            $(`tr[data-id="${id}"]`).remove();
+            console.log("data deleted successfully")
+        },
+        error:(err)=>{
+            console.log(err)
+        }
+    })
+}
+
+function editUser(user){
+    $.ajax({
+        type:"PUT",
+        url:`http://localhost:3000/users/${id}`,
+        headers: {
+            'Content-Type':'application/json'
+        },
+        data:JSON.stringify(user),
+        success:(res)=>{
+            $(`tr[data-id="${id}"]`).remove();
+            console.log("data deleted successfully")
+        },
+        error:(err)=>{
+            console.log(err)
+        }
+    })
 }
